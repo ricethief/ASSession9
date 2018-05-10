@@ -70,8 +70,24 @@ public class SMSDataModelTesting {
             System.out.println("Testing [deleteNumber at array 2 expecting Null] ->" + phoneNumberdeleted);
             System.out.println("Testing [deleteNumber at array 2] ->" + smsDataModelArray2);
 
-            //
-            
+            //sort numbers
+            SMSDataModelArray smsDataModelArray4;
+            smsDataModelArray4 = new SMSDataModelArray("max8", 8);
+
+            smsDataModelArray4.addPhoneNumber("01011111111");
+            smsDataModelArray4.addPhoneNumber("05011111111");
+            smsDataModelArray4.addPhoneNumber("06011111111");
+            smsDataModelArray4.addPhoneNumber("09011111111");
+            smsDataModelArray4.addPhoneNumber("05011111111");
+            smsDataModelArray4.addPhoneNumber("02011111111");
+            smsDataModelArray4.addPhoneNumber("01311111111");
+            smsDataModelArray4.addPhoneNumber("01411111111");
+            smsDataModelArray4.addPhoneNumber("09911111111");
+            System.out.println("Testing [before sorting by number] ->" + smsDataModelArray4);
+
+            smsDataModelArray4.sortNumbers();
+            System.out.println("Testing [after sorting by number] ->" + smsDataModelArray4);
+
         } catch (SMSDataModelFullException ex) {
             Logger.getLogger(SMSDataModelTesting.class.getName()).log(Level.SEVERE, null, ex);
         }

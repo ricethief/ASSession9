@@ -133,7 +133,9 @@ public class SMSDataModelArray implements SMSDataModelInterface, Serializable {
 
   @Override
   public void sortNumbers() {
-    throw new UnsupportedOperationException("Not supported yet.");
+     
+      Arrays.sort(phoneNumbers);
+   //throw new UnsupportedOperationException("Not supported yet.");
   }
 
 }
