@@ -39,7 +39,7 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
     public SMSDataModelList(String initialMessage, int maxNumPhoneNumbers) {
         this.message = initialMessage;
         this.phoneNumbers = new ArrayList<String>();
-    
+
         this.maxNumPhoneNumbers = maxNumPhoneNumbers;
     }
 
@@ -77,8 +77,14 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
         if (i < 0 || i >= phoneNumbers.size()) {
             result = null;
         } else {
-            result = phoneNumbers.get(i);
-            phoneNumbers.set(i, newPhoneNumber);
+            boolean exist;
+            exist = findPhoneNumberIndex(newPhoneNumber) != -1;
+            if (exist) {
+                result = DUPLICATE;
+            } else {
+                result = phoneNumbers.get(i);
+                phoneNumbers.set(i, newPhoneNumber);
+            }
         }
         return result;
     }
@@ -101,7 +107,7 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
         } else {
             result = phoneNumbers.get(i);
             phoneNumbers.remove(i);
-          
+
         }
         return result;
     }
@@ -114,10 +120,11 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
         return phoneNumbers.size() == this.maxNumPhoneNumbers;
     }
 
-   public String[] getPhoneNumbers() {
-        String[] phoneNumberArray =  phoneNumbers.toArray(new String[0]);
+    public String[] getPhoneNumbers() {
+        String[] phoneNumberArray = phoneNumbers.toArray(new String[0]);
         return phoneNumberArray;
-   }
+    }
+
     public int getNumPhoneNumbers() {
         return phoneNumbers.size();
     }

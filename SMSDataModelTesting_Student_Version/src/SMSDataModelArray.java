@@ -70,8 +70,14 @@ public class SMSDataModelArray implements SMSDataModelInterface, Serializable {
         if (i < 0 || i >= numPhoneNumbers) {
             result = null;
         } else {
-            result = phoneNumbers[i];
-            phoneNumbers[i] = newPhoneNumber;
+            boolean exist;
+            exist = findPhoneNumberIndex(newPhoneNumber) != -1;
+            if (exist) {
+                result = DUPLICATE;
+            } else {
+                result = phoneNumbers[i];
+                phoneNumbers[i] = newPhoneNumber;
+            }
         }
         return result;
     }

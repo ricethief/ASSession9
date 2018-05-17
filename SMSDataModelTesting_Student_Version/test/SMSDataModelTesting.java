@@ -149,7 +149,7 @@ public class SMSDataModelTesting {
             //updatePhoneNumber
             System.out.println("*---------------------------------------------*");
             System.out.println("Testing [updatePhoneNumber before update]->" + smsDataModelList1);
-            smsDataModelList1.updatePhoneNumber("1333", 1);
+            smsDataModelList1.updatePhoneNumber("53", 1);
             System.out.println("Testing [updatePhoneNumber after update]->" + smsDataModelList1);
 
             //getPhoneNumber
@@ -157,9 +157,9 @@ public class SMSDataModelTesting {
             System.out.println("Testing [getPhoneNumber, expecting 76663]->" + smsDataModelList1.getPhoneNumber(2));
 
             //deleteNumber
-            System.out.println("Testing [updatePhoneNumber before Delete index0]->" + smsDataModelList1);
+            System.out.println("Testing [deletePhonNumber before Delete index0]->" + smsDataModelList1);
             smsDataModelList1.deleteNumber(0);
-            System.out.println("Testing [updatePhoneNumber after Delete index0]->" + smsDataModelList1);
+            System.out.println("Testing [deletePhonNumber after Delete index0]->" + smsDataModelList1);
 
             //getMaxNumPhoneNumbers
             System.out.println("*---------------------------------------------*");
