@@ -62,13 +62,15 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
     }
 
     public int findPhoneNumberIndex(String targetNumber) {
-        int i = 0;
-        for (i = 0; i < this.phoneNumbers.size(); i++) {
-            if (this.phoneNumbers.get(i).equals(targetNumber)) {
-                return i;
-            }
-        }
-        return -1;
+//        int i = 0;
+//        for (i = 0; i < this.phoneNumbers.size(); i++) {
+           // if (this.phoneNumbers.get(i).equals(targetNumber)) {
+           //     return i;
+          return this.phoneNumbers.indexOf(targetNumber);
+           
+//            }
+//        }
+//        return -1;
     }
 
     public String updatePhoneNumber(String newPhoneNumber, int i) {
@@ -82,8 +84,7 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
             if (exist) {
                 result = DUPLICATE;
             } else {
-                result = phoneNumbers.get(i);
-                phoneNumbers.set(i, newPhoneNumber);
+                result = phoneNumbers.set(i, newPhoneNumber);
             }
         }
         return result;
@@ -105,9 +106,7 @@ public class SMSDataModelList implements SMSDataModelInterface, Serializable {
         if (i < 0 || i >= phoneNumbers.size()) {
             result = null;
         } else {
-            result = phoneNumbers.get(i);
-            phoneNumbers.remove(i);
-
+            result = phoneNumbers.remove(i);
         }
         return result;
     }
